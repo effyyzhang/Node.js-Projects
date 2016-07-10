@@ -9,6 +9,11 @@
     var socket = io.connect('//localhost:3000');
     socket.on('data', function(data) {
         console.log(data);
+        //map function in jquery
+        // var incoming = data.val;
+        // var final = map_range(data.val, 0,1023,0,4000);
+
+
         $('#incoming').text(data.val);
         $('img').attr('width',data.val);
         $('img').attr('height',data.val);

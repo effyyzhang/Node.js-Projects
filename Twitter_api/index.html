@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Twitter Streaming</title>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+     <script>
+    var socket = io.connect('//localhost:3000');
+    socket.on('stream', function(tweet) {
+        //console.log(tweet.text);
+        $('#list').append(tweet+"<br>");
+    });
+    socket.on('error', function() {
+        console.error(arguments)
+    });
+    </script>
+</head>
+
+<body>
+
+<div id="list">Tweets</div>
+</body>
+
+</html>
+ 

@@ -12,22 +12,20 @@ var client = new Twitter({
     access_token_secret: '4XtCCHgqnDu6WWJ7aC0qjV24xDbzhAaEYvI6ZjUuqZwgv'
 })
 
-//set up a new j5 board
-var board = new five.Board();
-var led;
+// //set up a new j5 board
+// var board = new five.Board();
+// var led;
 
 //make a blink function 
-function blink() {
-  led.pulse(40);
+// function blink() {
+//   led.pulse(40);
 
-  board.wait(4000, function(){
-    led.stop();
-  });
-  }
+//   board.wait(4000, function(){
+//     led.stop();
+//   });
+//   }
 
-board.on("ready", function() {
-// Create assign a j5 led on pin 6 to led    
-led = new five.Led(6);
+
 
 // Creates a realtime streaming connection to the Twitter
 // API, letting you "track" a particular keyword or hashtag
@@ -51,9 +49,8 @@ client.stream('statuses/filter', {
         // as seen in the first example.
         tweetStream.on('data', function(tweet) {
             console.log(tweet.text);
-            blink(led);
+            //blink(led);
 
         })
-    })
-});
+    });
 
